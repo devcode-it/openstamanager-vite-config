@@ -17,7 +17,7 @@ function merge(obj1, obj2) {
     return obj1;
 }
 const osm_config = {
-    assetsInclude: ['js', 'png'],
+    assetsInclude: ['js', 'jpg', 'png', 'webp', 'txt'],
     build: {
         minify: false,
         rollupOptions: {
