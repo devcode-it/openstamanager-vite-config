@@ -20,7 +20,7 @@ function merge(obj1: Object, obj2: Object) {
 }
 
 const osm_config: UserConfig = {
-    assetsInclude: ['js', 'png'],
+    assetsInclude: ['js', 'jpg', 'png', 'webp', 'txt'],
     build: {
         minify: false,
         rollupOptions: {
