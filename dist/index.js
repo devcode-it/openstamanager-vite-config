@@ -8,7 +8,7 @@ function merge(obj1, obj2) {
     for (const key in obj2) {
         if (obj2.hasOwnProperty(key)) {
             if (typeof obj1[key] === "object" && typeof obj2[key] === "object") {
-                obj1[key].merge(obj2[key]);
+                merge(obj1[key], obj2[key]);
                 continue;
             }
             obj1[key] = obj2[key];
