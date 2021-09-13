@@ -31,6 +31,7 @@ const osm_config = {
         }
     },
     esbuild: {
+        target: 'es2020',
         jsxFactory: 'm',
         jsxFragment: 'm.Fragment'
     },
