@@ -36,7 +36,7 @@ const osm_config: UserConfig = {
     esbuild: {
         target: 'es2020',
         jsxFactory: 'm',
-        jsxFragment: 'm.Fragment'
+        jsxFragment: "'['"
     },
     optimizeDeps: {
         esbuildOptions: {
