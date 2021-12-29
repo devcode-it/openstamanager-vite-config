@@ -1,5 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
+import autoprefixer from "autoprefixer";
 import {UserConfig, defineConfig as viteConfig} from "vite";
 import {flowPlugin, esbuildFlowPlugin} from '@bunchtogether/vite-plugin-flow';
 
@@ -31,6 +32,11 @@ const osm_config: UserConfig = {
                 assetFileNames: '[name].[ext]'
             },
             preserveEntrySignatures: 'allow-extension'
+        }
+    },
+    css: {
+        postcss: {
+            plugins: [autoprefixer()]
         }
     },
     esbuild: {
