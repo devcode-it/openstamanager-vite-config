@@ -1,7 +1,11 @@
 "use strict";
 // noinspection JSUnusedGlobalSymbols
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.defineConfig = void 0;
+const autoprefixer_1 = __importDefault(require("autoprefixer"));
 const vite_1 = require("vite");
 const vite_plugin_flow_1 = require("@bunchtogether/vite-plugin-flow");
 function merge(obj1, obj2) {
@@ -19,6 +23,7 @@ function merge(obj1, obj2) {
 const osm_config = {
     assetsInclude: ['js', 'jpg', 'png', 'webp', 'txt'],
     build: {
+        target: 'esnext',
         minify: false,
         rollupOptions: {
             manualChunks: {},
@@ -30,8 +35,12 @@ const osm_config = {
             preserveEntrySignatures: 'allow-extension'
         }
     },
+    css: {
+        postcss: {
+            plugins: [(0, autoprefixer_1.default)()]
+        }
+    },
     esbuild: {
-        target: 'es2020',
         jsxFactory: 'm',
         jsxFragment: "'['"
     },
