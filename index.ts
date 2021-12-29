@@ -23,6 +23,7 @@ function merge(obj1: Object, obj2: Object) {
 const osm_config: UserConfig = {
     assetsInclude: ['js', 'jpg', 'png', 'webp', 'txt'],
     build: {
+        target: 'esnext',
         minify: false,
         rollupOptions: {
             manualChunks: {},
@@ -40,7 +41,6 @@ const osm_config: UserConfig = {
         }
     },
     esbuild: {
-        target: 'es2020',
         jsxFactory: 'm',
         jsxFragment: "'['"
     },
