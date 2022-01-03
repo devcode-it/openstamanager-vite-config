@@ -1,8 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
 import autoprefixer from "autoprefixer";
-import {UserConfig, defineConfig as viteConfig} from "vite";
-import {flowPlugin, esbuildFlowPlugin} from '@bunchtogether/vite-plugin-flow';
+import {defineConfig as viteConfig, UserConfig} from "vite";
 
 function merge(obj1: Object, obj2: Object) {
     for (const key in obj2) {
@@ -43,27 +42,7 @@ const osm_config: UserConfig = {
     esbuild: {
         jsxFactory: 'm',
         jsxFragment: "'['"
-    },
-    optimizeDeps: {
-        esbuildOptions: {
-            plugins: [esbuildFlowPlugin(/\.(flow|jsx?)$/, path => (/\.jsx$/.test(path) ? 'jsx' : 'js'), {
-                all: true,
-                pretty: true,
-                ignoreUninitializedFields: false
-            })]
-        }
-    },
-    plugins: [
-        flowPlugin({
-            include: /\.(flow|jsx?)$/,
-            exclude: /node_modules/,
-            flow: {
-                all: true,
-                pretty: true,
-                ignoreUninitializedFields: false
-            }
-        })
-    ]
+    }
 }
 
 /**

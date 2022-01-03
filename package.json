@@ -1,6 +1,6 @@
 {
   "name": "@openstamanager/vite-config",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Vite common config for OpenSTAManager core and modules",
   "author": "Maicol Battistini <webmaster@maicol07.it> (https://maicol07.it)",
   "funding": [
@@ -26,13 +26,11 @@
   },
   "keywords": [],
   "peerDependencies": {
-    "@bunchtogether/vite-plugin-flow": ">=1.0.1",
     "autoprefixer": ">=10.4.1",
     "postcss": ">=8.4.5",
     "vite": ">=2.5"
   },
   "devDependencies": {
-    "@bunchtogether/vite-plugin-flow": "^1.0.1",
     "@types/node": "^16.7.13",
     "autoprefixer": ">=10.4.1",
     "postcss": ">=8.4.5",

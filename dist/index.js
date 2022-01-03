@@ -1,13 +1,7 @@
-"use strict";
 // noinspection JSUnusedGlobalSymbols
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.defineConfig = void 0;
-const autoprefixer_1 = __importDefault(require("autoprefixer"));
-const vite_1 = require("vite");
-const vite_plugin_flow_1 = require("@bunchtogether/vite-plugin-flow");
+import autoprefixer from "autoprefixer";
+import {defineConfig as viteConfig} from "vite";
+
 function merge(obj1, obj2) {
     for (const key in obj2) {
         if (obj2.hasOwnProperty(key)) {
@@ -37,50 +31,29 @@ const osm_config = {
     },
     css: {
         postcss: {
-            plugins: [(0, autoprefixer_1.default)()]
+            plugins: [autoprefixer()]
         }
     },
     esbuild: {
         jsxFactory: 'm',
         jsxFragment: "'['"
-    },
-    optimizeDeps: {
-        esbuildOptions: {
-            plugins: [(0, vite_plugin_flow_1.esbuildFlowPlugin)(/\.(flow|jsx?)$/, path => (/\.jsx$/.test(path) ? 'jsx' : 'js'), {
-                    all: true,
-                    pretty: true,
-                    ignoreUninitializedFields: false
-                })]
-        }
-    },
-    plugins: [
-        (0, vite_plugin_flow_1.flowPlugin)({
-            include: /\.(flow|jsx?)$/,
-            exclude: /node_modules/,
-            flow: {
-                all: true,
-                pretty: true,
-                ignoreUninitializedFields: false
-            }
-        })
-    ]
+    }
 };
 /**
  * Returns the merged config
  *
  * @param config Config to merge with the default common one
  */
-function osmConfig(config) {
+export default function osmConfig(config) {
     return merge(osm_config, config);
 }
-exports.default = osmConfig;
+
 /**
  * Returns the vite config object
  *
  * @param config Config to merge with the default common one
  */
-function defineConfig(config) {
-    return (0, vite_1.defineConfig)(osmConfig(config));
+export function defineConfig(config) {
+    return viteConfig(osmConfig(config));
 }
-exports.defineConfig = defineConfig;
 //# sourceMappingURL=index.js.map
