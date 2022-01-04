@@ -47,7 +47,6 @@ const osm_config = {
 export default function osmConfig(config) {
     return merge(osm_config, config);
 }
-
 /**
  * Returns the vite config object
  *
