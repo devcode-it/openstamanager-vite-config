@@ -1,6 +1,12 @@
+"use strict";
 // noinspection JSUnusedGlobalSymbols
-import autoprefixer from "autoprefixer";
-import {defineConfig as viteConfig} from "vite";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : {"default": mod};
+};
+Object.defineProperty(exports, "__esModule", {value: true});
+exports.defineConfig = void 0;
+const autoprefixer_1 = __importDefault(require("autoprefixer"));
+const vite_1 = require("vite");
 
 function merge(obj1, obj2) {
     for (const key in obj2) {
@@ -31,7 +37,7 @@ const osm_config = {
     },
     css: {
         postcss: {
-            plugins: [autoprefixer()]
+            plugins: [(0, autoprefixer_1.default)()]
         }
     },
     esbuild: {
@@ -39,20 +45,26 @@ const osm_config = {
         jsxFragment: "'['"
     }
 };
+
 /**
  * Returns the merged config
  *
  * @param config Config to merge with the default common one
  */
-export default function osmConfig(config) {
+function osmConfig(config) {
     return merge(osm_config, config);
 }
+
+exports.default = osmConfig;
+
 /**
  * Returns the vite config object
  *
  * @param config Config to merge with the default common one
  */
-export function defineConfig(config) {
-    return viteConfig(osmConfig(config));
+function defineConfig(config) {
+    return (0, vite_1.defineConfig)(osmConfig(config));
 }
+
+exports.defineConfig = defineConfig;
 //# sourceMappingURL=index.js.map
