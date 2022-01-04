@@ -1,6 +1,6 @@
 {
   "name": "@openstamanager/vite-config",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Vite common config for OpenSTAManager core and modules",
   "author": "Maicol Battistini <webmaster@maicol07.it> (https://maicol07.it)",
   "funding": [
@@ -16,7 +16,7 @@
   "repository": "github:maicol07/openstamanager-vite-config",
   "license": "MIT",
   "main": "dist/index.js",
-  "type": "module",
+  "type": "commonjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist/*"
