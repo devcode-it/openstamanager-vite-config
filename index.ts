@@ -50,7 +50,7 @@ const osm_config: UserConfig = {
  *
  * @param config Config to merge with the default common one
  */
-export default function osmConfig(config: UserConfig) {
+export default function osmConfig(config: UserConfig = {}) {
     return merge(osm_config, config);
 }
 
@@ -59,6 +59,6 @@ export default function osmConfig(config: UserConfig) {
  *
  * @param config Config to merge with the default common one
  */
-export function defineConfig(config: UserConfig) {
+export function defineConfig(config: UserConfig = {}) {
     return viteConfig(osmConfig(config));
 }

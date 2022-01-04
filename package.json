@@ -1,6 +1,6 @@
 {
   "name": "@openstamanager/vite-config",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Vite common config for OpenSTAManager core and modules",
   "author": "Maicol Battistini <webmaster@maicol07.it> (https://maicol07.it)",
   "funding": [

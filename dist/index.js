@@ -7,7 +7,6 @@ Object.defineProperty(exports, "__esModule", {value: true});
 exports.defineConfig = void 0;
 const autoprefixer_1 = __importDefault(require("autoprefixer"));
 const vite_1 = require("vite");
-
 function merge(obj1, obj2) {
     for (const key in obj2) {
         if (obj2.hasOwnProperty(key)) {
@@ -51,10 +50,9 @@ const osm_config = {
  *
  * @param config Config to merge with the default common one
  */
-function osmConfig(config) {
+function osmConfig(config = {}) {
     return merge(osm_config, config);
 }
-
 exports.default = osmConfig;
 
 /**
@@ -62,9 +60,8 @@ exports.default = osmConfig;
  *
  * @param config Config to merge with the default common one
  */
-function defineConfig(config) {
+function defineConfig(config = {}) {
     return (0, vite_1.defineConfig)(osmConfig(config));
 }
-
 exports.defineConfig = defineConfig;
 //# sourceMappingURL=index.js.map
