@@ -1,12 +1,7 @@
-"use strict";
 // noinspection JSUnusedGlobalSymbols
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : {"default": mod};
-};
-Object.defineProperty(exports, "__esModule", {value: true});
-exports.defineConfig = void 0;
-const autoprefixer_1 = __importDefault(require("autoprefixer"));
-const vite_1 = require("vite");
+import autoprefixer from "autoprefixer";
+import {defineConfig as viteConfig} from "vite";
+
 function merge(obj1, obj2) {
     for (const key in obj2) {
         if (obj2.hasOwnProperty(key)) {
@@ -25,8 +20,8 @@ const osm_config = {
         target: 'esnext',
         minify: false,
         rollupOptions: {
-            manualChunks: {},
             output: {
+                // manualChunks: {},
                 entryFileNames: '[name].js',
                 chunkFileNames: '[name].js',
                 assetFileNames: '[name].[ext]'
@@ -36,7 +31,7 @@ const osm_config = {
     },
     css: {
         postcss: {
-            plugins: [(0, autoprefixer_1.default)()]
+            plugins: [autoprefixer()]
         }
     },
     esbuild: {
@@ -44,24 +39,21 @@ const osm_config = {
         jsxFragment: "'['"
     }
 };
-
 /**
  * Returns the merged config
  *
  * @param config Config to merge with the default common one
  */
-function osmConfig(config = {}) {
+export default function osmConfig(config = {}) {
     return merge(osm_config, config);
 }
-exports.default = osmConfig;
 
 /**
  * Returns the vite config object
  *
  * @param config Config to merge with the default common one
  */
-function defineConfig(config = {}) {
-    return (0, vite_1.defineConfig)(osmConfig(config));
+export function defineConfig(config = {}) {
+    return viteConfig(osmConfig(config));
 }
-exports.defineConfig = defineConfig;
 //# sourceMappingURL=index.js.map

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
+    "module": "ESNext",
     "moduleResolution": "Node",
     "lib": [
       "es2016",
@@ -10,7 +10,9 @@
     "sourceMap": true,
     "declaration": true,
     "outDir": "./dist",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "isolatedModules": false,
+    "useDefineForClassFields": false
   },
   "include": [
     "*"
